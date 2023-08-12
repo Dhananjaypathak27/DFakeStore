@@ -27,4 +27,14 @@
         android:name="com.inxparticle.dfakestore.view.dashboardScreen.DashboardScreenFragment"
         android:label="fragment_dashboard_screen"
         tools:layout="@layout/fragment_dashboard_screen" />
+    <fragment
+        android:id="@+id/cartScreenFragment"
+        android:name="com.inxparticle.dfakestore.view.cartScreen.CartScreenFragment"
+        android:label="fragment_cart_screen"
+        tools:layout="@layout/fragment_cart_screen" />
+    <fragment
+        android:id="@+id/profileScreenFragment"
+        android:name="com.inxparticle.dfakestore.view.profileScreen.ProfileScreenFragment"
+        android:label="fragment_profile_screen"
+        tools:layout="@layout/fragment_profile_screen" />
 </navigation>
