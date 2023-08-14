@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.inxparticle.dfakestore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val viewModel: MainActivityViewModel by viewModels()
 
     private val navController by lazy{
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
 
         // Find reference to bottom navigation view
-        val navView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
+        val navView: BottomNavigationView = binding.bottomNavView
         // Hook your navigation controller to bottom navigation view
         navView.setupWithNavController(navController)
 
@@ -42,12 +42,17 @@ class MainActivity : AppCompatActivity() {
                 when (destination.id) {
                     R.id.splashScreenFragment -> {
                         binding.bottomNavView.visibility = View.GONE
+                        binding.myToolbar.visibility = View.GONE
                     }
                     R.id.cartScreenFragment -> {
                         binding.bottomNavView.visibility = View.GONE
                     }
                     R.id.dashboardScreenFragment -> {
                         binding.bottomNavView.visibility = View.VISIBLE
+                    }
+                    R.id.loginScreenFragment ->{
+                        binding.bottomNavView.visibility = View.GONE
+                        binding.myToolbar.visibility = View.GONE
                     }
                 }
         }

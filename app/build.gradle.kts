@@ -53,4 +53,7 @@ dependencies {
     //this provides by functionality for viewModels to init
     implementation("androidx.fragment:fragment-ktx:1.6.1")
 
+    //coroutine
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
 }
