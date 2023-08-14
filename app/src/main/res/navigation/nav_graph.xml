@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.inxparticle.dfakestore.view.splashScreen.SplashScreenFragment"
-        android:label="fragment_splash_screen"
+        android:label="@string/splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
             android:id="@+id/action_splashScreenFragment_to_loginScreenFragment"
@@ -20,21 +20,21 @@
     <fragment
         android:id="@+id/loginScreenFragment"
         android:name="com.inxparticle.dfakestore.view.loginScreen.LoginScreenFragment"
-        android:label="fragment_login_screen"
+        android:label="@string/login"
         tools:layout="@layout/fragment_login_screen" />
     <fragment
         android:id="@+id/dashboardScreenFragment"
         android:name="com.inxparticle.dfakestore.view.dashboardScreen.DashboardScreenFragment"
-        android:label="fragment_dashboard_screen"
+        android:label="@string/Dashboard"
         tools:layout="@layout/fragment_dashboard_screen" />
     <fragment
         android:id="@+id/cartScreenFragment"
         android:name="com.inxparticle.dfakestore.view.cartScreen.CartScreenFragment"
-        android:label="fragment_cart_screen"
+        android:label="@string/myCart"
         tools:layout="@layout/fragment_cart_screen" />
     <fragment
         android:id="@+id/profileScreenFragment"
         android:name="com.inxparticle.dfakestore.view.profileScreen.ProfileScreenFragment"
-        android:label="fragment_profile_screen"
+        android:label="@string/Profile"
         tools:layout="@layout/fragment_profile_screen" />
 </navigation>

@@ -18,10 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
     private val viewModel: MainActivityViewModel by viewModels()
 
-//    private val actionBarDrawerToggle by lazy {
-//        ActionBarDrawerToggle(this,binding.drawerLayout,R.string.open,R.string.close)
-//    }
-
     private val navController by lazy{
         Navigation.findNavController(this,R.id.navHostFragment)
     }
