@@ -1,46 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.loginScreen.LoginScreenFragment">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.inxparticle.dfakestore.view.loginScreen.LoginScreenViewModel" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/user_name_text_input_layout"
+        <variable
+            name="listner"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Username"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context=".view.loginScreen.LoginScreenFragment">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/user_name_text_input_edit_text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_name_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:hint="Username"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_name_text_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_text_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        </com.google.android.material.textfield.TextInputLayout>
 
-        android:layout_marginTop="28dp"
-        android:hint="Password"
-        app:layout_constraintTop_toBottomOf="@+id/user_name_text_input_layout"
-        tools:layout_editor_absoluteX="0dp">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_text_input_edit_text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="28dp"
+            android:hint="Password"
+            app:layout_constraintTop_toBottomOf="@+id/user_name_text_input_layout"
+            tools:layout_editor_absoluteX="0dp">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_text_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:onClick="@{listner::onClick}"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.inxparticle.dfakestore.view.splashScreen.SplashScreenFragment"
+        android:label="@string/splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginScreenFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/splashScreenFragment"
+            app:destination="@id/loginScreenFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_splashScreenFragment_to_dashboardScreenFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            app:popUpTo="@id/splashScreenFragment"-->
+<!--            app:destination="@id/dashboardScreenFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/loginScreenFragment"
+        android:name="com.inxparticle.dfakestore.view.loginScreen.LoginScreenFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login_screen" >
+        <action
+            android:id="@+id/action_loginScreenFragment_to_homTestFragment"
+            app:destination="@id/homeLoggedInFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/homeLoggedInFragment"
+        android:name="com.inxparticle.dfakestore.view.homeLoggedIn.HomeLoggedInFragment"
+        android:label="fragment_hom_test"
+        tools:layout="@layout/fragment_home_logged_in" />
+</navigation>

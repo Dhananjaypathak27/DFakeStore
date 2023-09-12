@@ -5,56 +5,52 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.inxparticle.dfakestore.R
+import com.inxparticle.dfakestore.databinding.FragmentLoginScreenBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginScreenFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class LoginScreenFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class LoginScreenFragment : Fragment(),View.OnClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding:FragmentLoginScreenBinding
+    private val viewModel by viewModels<LoginScreenViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_screen, container, false)
+        binding = FragmentLoginScreenBinding.inflate(inflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginScreenFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginScreenFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.listner = this
+
+        viewModel.mShowError.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+        })
+
+        viewModel.moveToDashBoardScreen.observe(viewLifecycleOwner, Observer {
+            if(it){
+                findNavController().navigate(R.id.action_loginScreenFragment_to_homTestFragment)
+               }
+        })
     }
+
+    override fun onClick(view: View?) {
+        when (view?.id){
+            binding.button.id ->{
+
+                findNavController().navigate(R.id.action_loginScreenFragment_to_homTestFragment)
+            }
+        }
+    }
+
+
 }

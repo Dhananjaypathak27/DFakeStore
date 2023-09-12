@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/logged_in_graph"
+    app:startDestination="@id/dashboardScreenFragment">
+        <fragment
+            android:id="@+id/dashboardScreenFragment"
+            android:name="com.inxparticle.dfakestore.view.dashboardScreen.DashboardScreenFragment"
+            android:label="Dashboard"
+            tools:layout="@layout/fragment_dashboard_screen" />
+
+        <fragment
+            android:id="@+id/profileScreenFragment"
+            android:name="com.inxparticle.dfakestore.view.profileScreen.ProfileScreenFragment"
+            android:label="@string/Profile"
+            tools:layout="@layout/fragment_profile_screen" />
+        <fragment
+            android:id="@+id/cartScreenFragment"
+            android:name="com.inxparticle.dfakestore.view.cartScreen.CartScreenFragment"
+            android:label="@string/myCart"
+            tools:layout="@layout/fragment_cart_screen" />
+
+</navigation>
