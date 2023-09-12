@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.inxparticle.dfakestore.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,6 +38,17 @@ class LoginScreenFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login_screen, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val buttonDashboard = view.findViewById<Button>(R.id.buttonDashboard)
+        buttonDashboard.setOnClickListener {
+            with(findNavController()) {
+                navigate(R.id.dashboard_graph)
+                setGraph(R.navigation.dashboard_graph)
+            }
+        }
     }
 
     companion object {
