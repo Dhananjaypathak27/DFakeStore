@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/auth_graph"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/splashScreenFragment">
 
     <fragment
@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_loginScreenFragment"
             app:destination="@id/loginScreenFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_dashboardScreenFragment"
+            app:destination="@id/dashboardScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginScreenFragment"
         android:name="com.inxparticle.dfakestore.view.loginScreen.LoginScreenFragment"
         android:label="fragment_login_screen"
         tools:layout="@layout/fragment_login_screen" />
+    <fragment
+        android:id="@+id/dashboardScreenFragment"
+        android:name="com.inxparticle.dfakestore.view.dashboardScreen.DashboardScreenFragment"
+        android:label="fragment_dashboard_screen"
+        tools:layout="@layout/fragment_dashboard_screen" />
 </navigation>
