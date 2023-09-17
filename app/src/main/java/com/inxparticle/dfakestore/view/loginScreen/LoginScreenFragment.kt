@@ -38,7 +38,7 @@ class LoginScreenFragment : Fragment(),View.OnClickListener {
 
         viewModel.moveToDashBoardScreen.observe(viewLifecycleOwner, Observer {
             if(it){
-                findNavController().navigate(R.id.action_loginScreenFragment_to_homTestFragment)
+                findNavController().navigate(R.id.action_loginScreenFragment_to_logged_in_graph)
                }
         })
     }
@@ -47,7 +47,7 @@ class LoginScreenFragment : Fragment(),View.OnClickListener {
         when (view?.id){
             binding.button.id ->{
 
-                findNavController().navigate(R.id.action_loginScreenFragment_to_homTestFragment)
+                findNavController().navigate(R.id.action_loginScreenFragment_to_logged_in_graph)
             }
         }
     }

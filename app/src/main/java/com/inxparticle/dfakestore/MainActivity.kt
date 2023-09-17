@@ -16,7 +16,6 @@ import com.inxparticle.dfakestore.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainActivityViewModel by viewModels()
-    private var isUserloggedIn = false
 
     private val navController by lazy{
         Navigation.findNavController(this,R.id.navHostFragment)
@@ -36,17 +35,9 @@ class MainActivity : AppCompatActivity() {
         val inflater = navHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.auth_graph)
 
-        if (isUserloggedIn){
-            graph.startDestination = R.id.homeLoggedInFragment
-        }else {
-            graph.startDestination = R.id.splashScreenFragment
-
-        }
-
         val navController = navHostFragment.navController
         navController.setGraph(graph, intent.extras)
 
-        setupDrawerLayout()
         showHideNavigationDrawerAndBottomNavigationBar()
     }
 
@@ -55,42 +46,22 @@ class MainActivity : AppCompatActivity() {
             controller,destination,argument->
                 when (destination.id) {
                     R.id.splashScreenFragment -> {
-                        binding.bottomNavView.visibility = View.VISIBLE
-                        binding.myToolbar.visibility = View.VISIBLE
+                        binding.bottomNavView.visibility = View.GONE
+                        binding.myToolbar.visibility = View.GONE
                     }
                     R.id.cartScreenFragment -> {
-                        binding.bottomNavView.visibility = View.GONE
+                        binding.bottomNavView.visibility = View.VISIBLE
+                        binding.myToolbar.visibility = View.GONE
                     }
                     R.id.dashboardScreenFragment -> {
                         binding.myToolbar.visibility = View.VISIBLE
                         binding.bottomNavView.visibility = View.VISIBLE
                     }
                     R.id.loginScreenFragment ->{
-                        binding.bottomNavView.visibility = View.VISIBLE
-                        binding.myToolbar.visibility = View.VISIBLE
-                    }
-                    R.id.homeLoggedInFragment ->{
                         binding.bottomNavView.visibility = View.GONE
-                        binding.myToolbar.visibility = View.VISIBLE
+                        binding.myToolbar.visibility = View.GONE
                     }
                 }
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, binding.drawerLayout)
-    }
-
-    private fun setupDrawerLayout() {
-        binding.navView.setupWithNavController(navController)
-        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
-    }
-
-    override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
         }
     }
 }

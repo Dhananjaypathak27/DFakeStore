@@ -8,15 +8,11 @@
             type="com.inxparticle.dfakestore.MainActivityViewModel" />
     </data>
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/my_toolbar"
@@ -41,8 +37,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+                app:navGraph="@navigation/auth_graph"
                  />
 
 
@@ -59,15 +55,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:menu="@menu/drawer_menu"
-            app:headerLayout="@layout/header_layout"
-            android:fitsSystemWindows="true" />
 
-    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
