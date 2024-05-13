@@ -35,7 +35,6 @@ class HomeLoggedInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        findNavController()
         binding.navViewHome.setupWithNavController(navController)
     }
 

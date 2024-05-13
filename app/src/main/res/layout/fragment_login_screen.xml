@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.inxparticle.dfakestore.view.loginScreen.LoginScreenViewModel" />
@@ -31,6 +32,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/user_name_text_input_edit_text"
                 android:layout_width="match_parent"
+                android:text="@={viewModel.username}"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -39,7 +41,6 @@
             android:id="@+id/password_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="28dp"
             android:hint="Password"
             app:layout_constraintTop_toBottomOf="@+id/user_name_text_input_layout"
@@ -49,23 +50,34 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_text_input_edit_text"
                 android:layout_width="match_parent"
+                android:text="@={viewModel.password}"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/login_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Button"
-            android:onClick="@{listner::onClick}"
             android:layout_marginTop="20dp"
+            android:onClick="@{()->viewModel.onClickButton()}"
+            android:text="LogIn"
+            android:visibility="@{viewModel.isLoading ? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout" />
 
-
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/login_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/login_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -12,29 +12,33 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.inxparticle.dfakestore.R
 import com.inxparticle.dfakestore.databinding.FragmentSplashScreenBinding
+import com.inxparticle.dfakestore.util.IS_USER_LOGGED_IN
+import com.inxparticle.dfakestore.util.SharedPref
 
 class SplashScreenFragment : Fragment() {
     private lateinit var binding : FragmentSplashScreenBinding
     private val viewModel: SplashScreenViewModel by viewModels()
-
+    private lateinit var sharedPref:SharedPref
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_splash_screen, container, false)
+
         binding = FragmentSplashScreenBinding.inflate(inflater)
-//        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_splash_screen,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-
+        binding.lifecycleOwner = this
+        sharedPref = SharedPref(requireContext())
         viewModel.moveToNextScreen.observe(viewLifecycleOwner, Observer {
             if(it){
-                Navigation.findNavController(requireActivity(),R.id.navHostFragment).navigate(R.id.action_splashScreenFragment_to_loginScreenFragment)
+                if(sharedPref.getBoolean(IS_USER_LOGGED_IN))
+                Navigation.findNavController(requireActivity(),R.id.navHostFragment).navigate(R.id.action_splashScreenFragment_to_logged_in_graph)
+                else
+                    Navigation.findNavController(requireActivity(),R.id.navHostFragment).navigate(R.id.action_splashScreenFragment_to_loginScreenFragment)
             }
         })
     }

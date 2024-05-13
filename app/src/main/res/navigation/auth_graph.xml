@@ -15,11 +15,9 @@
             app:popUpToInclusive="true"
             app:popUpTo="@id/splashScreenFragment"
             app:destination="@id/loginScreenFragment" />
-<!--        <action-->
-<!--            android:id="@+id/action_splashScreenFragment_to_dashboardScreenFragment"-->
-<!--            app:popUpToInclusive="true"-->
-<!--            app:popUpTo="@id/splashScreenFragment"-->
-<!--            app:destination="@id/dashboardScreenFragment" />-->
+        <action
+            android:id="@+id/action_splashScreenFragment_to_logged_in_graph"
+            app:destination="@id/logged_in_graph" />
     </fragment>
     <fragment
         android:id="@+id/loginScreenFragment"
@@ -27,6 +25,8 @@
         android:label="@string/login"
         tools:layout="@layout/fragment_login_screen" >
         <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginScreenFragment"
             android:id="@+id/action_loginScreenFragment_to_logged_in_graph"
             app:destination="@id/logged_in_graph" />
     </fragment>

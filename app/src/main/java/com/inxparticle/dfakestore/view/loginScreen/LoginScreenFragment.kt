@@ -8,15 +8,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.inxparticle.dfakestore.R
 import com.inxparticle.dfakestore.databinding.FragmentLoginScreenBinding
+import kotlinx.coroutines.launch
 
 
-class LoginScreenFragment : Fragment(),View.OnClickListener {
+class LoginScreenFragment : Fragment(), View.OnClickListener {
 
-    private lateinit var binding:FragmentLoginScreenBinding
+    private lateinit var binding: FragmentLoginScreenBinding
     private val viewModel by viewModels<LoginScreenViewModel>()
 
     override fun onCreateView(
@@ -31,25 +33,26 @@ class LoginScreenFragment : Fragment(),View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.listner = this
+        binding.lifecycleOwner = this
 
-        viewModel.mShowError.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+        viewModel.showError.observe(viewLifecycleOwner, Observer {
+            it?.let {
+               if(it.isNotEmpty()){
+                   Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+               }
+            }
         })
 
-        viewModel.moveToDashBoardScreen.observe(viewLifecycleOwner, Observer {
-            if(it){
+        viewModel.moveToLoggedInGraph.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                viewModel.moveToLoggedInGraph.value = false
                 findNavController().navigate(R.id.action_loginScreenFragment_to_logged_in_graph)
-               }
+            }
         })
     }
 
     override fun onClick(view: View?) {
-        when (view?.id){
-            binding.button.id ->{
 
-                findNavController().navigate(R.id.action_loginScreenFragment_to_logged_in_graph)
-            }
-        }
     }
 
 
