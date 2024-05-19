@@ -36,9 +36,11 @@ class SplashScreenFragment : Fragment() {
         viewModel.moveToNextScreen.observe(viewLifecycleOwner, Observer {
             if(it){
                 if(sharedPref.getBoolean(IS_USER_LOGGED_IN))
-                Navigation.findNavController(requireActivity(),R.id.navHostFragment).navigate(R.id.action_splashScreenFragment_to_logged_in_graph)
-                else
-                    Navigation.findNavController(requireActivity(),R.id.navHostFragment).navigate(R.id.action_splashScreenFragment_to_loginScreenFragment)
+                    findNavController().graph =  findNavController().navInflater.inflate(R.navigation.logged_in_graph)
+                else{
+                    findNavController().navigate(R.id.action_splashScreenFragment_to_loginScreenFragment)
+                }
+//
             }
         })
     }

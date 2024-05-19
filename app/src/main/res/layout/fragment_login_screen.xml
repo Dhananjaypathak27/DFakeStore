@@ -8,9 +8,6 @@
             name="viewModel"
             type="com.inxparticle.dfakestore.view.loginScreen.LoginScreenViewModel" />
 
-        <variable
-            name="listner"
-            type="android.view.View.OnClickListener" />
     </data>
 
 

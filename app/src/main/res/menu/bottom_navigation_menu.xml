@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@id/dashboardScreenFragment"
+        android:id="@id/dashboardScreen"
         android:icon="@drawable/baseline_home_24"
         android:title="Home" />
 
     <item
-        android:id="@id/cartScreenFragment"
+        android:id="@id/cartScreen"
         android:icon="@drawable/baseline_shopping_cart_24"
         android:title="cart" />
 
     <item
-        android:id="@id/profileScreenFragment"
+        android:id="@id/profileScreen"
         android:icon="@drawable/baseline_person_24"
         android:title="You" />
 </menu>

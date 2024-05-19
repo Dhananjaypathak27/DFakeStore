@@ -17,7 +17,7 @@ class SplashScreenViewModel : ViewModel(){
 //        viewModelScope.launch(Dispatchers.Default) {
 
 
-            val timer = object: CountDownTimer(2000, 1000) {
+            val timer = object: CountDownTimer(3000, 3000) {
                   override fun onTick(millisUntilFinished: Long) {
                       Log.e("TAG", "onTick: "+ Thread.currentThread().name )
                 }

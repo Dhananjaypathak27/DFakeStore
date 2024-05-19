@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/logged_in_graph"
-    app:startDestination="@id/dashboardScreenFragment">
+    app:startDestination="@id/dashboardScreen">
         <fragment
-            android:id="@+id/dashboardScreenFragment"
+            android:id="@+id/dashboardScreen"
             android:name="com.inxparticle.dfakestore.view.dashboardScreen.DashboardScreenFragment"
             android:label="Dashboard"
             tools:layout="@layout/fragment_dashboard_screen" />
 
         <fragment
-            android:id="@+id/profileScreenFragment"
+            android:id="@+id/profileScreen"
             android:name="com.inxparticle.dfakestore.view.profileScreen.ProfileScreenFragment"
             android:label="@string/Profile"
             tools:layout="@layout/fragment_profile_screen" />
         <fragment
-            android:id="@+id/cartScreenFragment"
+            android:id="@+id/cartScreen"
             android:name="com.inxparticle.dfakestore.view.cartScreen.CartScreenFragment"
             android:label="@string/myCart"
             tools:layout="@layout/fragment_cart_screen" />

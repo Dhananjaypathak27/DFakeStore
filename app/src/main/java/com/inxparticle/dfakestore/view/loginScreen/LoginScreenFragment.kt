@@ -32,7 +32,6 @@ class LoginScreenFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        binding.listner = this
         binding.lifecycleOwner = this
 
         viewModel.showError.observe(viewLifecycleOwner, Observer {
@@ -46,7 +45,17 @@ class LoginScreenFragment : Fragment(), View.OnClickListener {
         viewModel.moveToLoggedInGraph.observe(viewLifecycleOwner, Observer {
             if (it) {
                 viewModel.moveToLoggedInGraph.value = false
-                findNavController().navigate(R.id.action_loginScreenFragment_to_logged_in_graph)
+//                findNavController().navigate(R.id.action_loginScreenFragment_to_logged_in_graph)
+
+// Get the NavInflater
+                val navInflater = findNavController().navInflater
+
+// Inflate the new NavGraph
+                val newGraph = navInflater.inflate(R.navigation.logged_in_graph)
+
+// Set the new NavGraph
+                findNavController().graph = newGraph
+
             }
         })
     }
