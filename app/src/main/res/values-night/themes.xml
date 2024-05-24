@@ -3,5 +3,23 @@
     <style name="Base.Theme.DFakeStore" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+         <item name="colorPrimary">@color/color_primary</item>
+         <item name="colorPrimaryDark">@color/color_primary_dark</item>
+         <item name="colorAccent">@color/color_accent</item>
+
+
+
+    </style>
+
+    <style name="buttonStyle" parent="Widget.Material3.Button">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="fragmentStyle">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>

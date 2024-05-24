@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -19,11 +20,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.inxparticle.dfakestore.databinding.ActivityMainBinding
+import com.inxparticle.dfakestore.util.SharedPref
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainActivityViewModel by viewModels()
-
+    private lateinit var sharedPref:SharedPref
     val navController:NavController by lazy {
         findNavController(R.id.navHostFragment)
     }
@@ -33,6 +35,14 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.my_toolbar))
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        sharedPref = SharedPref(this)
+
+        if(sharedPref.getBoolean("nightModeOnn")){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
 
         // Find reference to bottom navigation view
         val navView: BottomNavigationView = binding.bottomNavView

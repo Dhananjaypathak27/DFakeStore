@@ -16,17 +16,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="@dimen/dim_10"
+        android:layout_marginVertical="@dimen/dim_20"
         tools:context=".view.profileScreen.ProfileScreenFragment">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Hey dhananjay"
+            android:hint="@string/hey_dhananjay"
             android:text="@{viewModel.userName}"
-            android:textSize="16dp"
+            android:textSize="@dimen/font_size_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/dim_10"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -44,24 +44,25 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5px"
+                android:layout_margin="@dimen/dim_5"
                 android:layout_weight="1"
-                android:text="Profile setting" />
+                android:text="@string/profile_setting" />
 
             <Button
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5px"
+                android:layout_margin="@dimen/dim_5"
                 android:layout_weight="1"
-                android:text="App Setting" />
+                android:text="@string/app_setting" />
         </LinearLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/capture_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Capture a Photo"
+            android:text="@string/capture_a_photo"
+            style="@style/buttonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,11 +70,20 @@
 
         <ImageView
             android:id="@+id/capture_photo_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/dim_200"
+            android:layout_height="@dimen/dim_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/capture_photo" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/capture_photo_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

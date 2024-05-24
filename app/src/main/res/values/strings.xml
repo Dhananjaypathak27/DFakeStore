@@ -10,4 +10,12 @@
     <string name="Dashboard">D Fack Store</string>
     <string name="myCart">My Cart</string>
     <string name="Profile">Profile</string>
+    <string name="hello_sample">hello sample</string>
+    <string name="hi_there_this_is_for_testing_purpose_not_for_any_other_work_this_is_for_understanding_the_requiremtnts_of_the_project_of_themes_in_android_development">Hi there! this is for testing purpose not for any other work this is for understanding the requiremtnts of the project of themes in android development</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="capture_a_photo">Capture a Photo</string>
+    <string name="profile_setting">Profile setting</string>
+    <string name="hey_dhananjay">Hey dhananjay</string>
+    <string name="app_setting">App Setting</string>
 </resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dim_1">1.5dp</dimen>
+    <dimen name="dim_2">3dp</dimen>
+<dimen name="dim_3">4.5dp</dimen>
+<dimen name="dim_4">6dp</dimen>
+<dimen name="dim_5">7.5dp</dimen>
+<dimen name="dim_6">9dp</dimen>
+<dimen name="dim_7">10.5dp</dimen>
+<dimen name="dim_8">12dp</dimen>
+<dimen name="dim_9">13.5dp</dimen>
+<dimen name="dim_10">15dp</dimen>
+<dimen name="font_size">18sp</dimen>
+<dimen name="dim_11">16.5dp</dimen>
+<dimen name="dim_12">18dp</dimen>
+<dimen name="dim_13">19.5dp</dimen>
+<dimen name="dim_14">21dp</dimen>
+<dimen name="dim_15">22.5dp</dimen>
+<dimen name="dim_16">24dp</dimen>
+<dimen name="dim_17">25.5dp</dimen>
+<dimen name="dim_18">27dp</dimen>
+<dimen name="dim_19">28.5dp</dimen>
+<dimen name="dim_20">30dp</dimen>
+<dimen name="dim_21">31.5dp</dimen>
+<dimen name="dim_22">33dp</dimen>
+<dimen name="dim_23">34.5dp</dimen>
+<dimen name="dim_24">36dp</dimen>
+<dimen name="dim_25">37.5dp</dimen>
+<dimen name="dim_26">39dp</dimen>
+<dimen name="dim_27">40.5dp</dimen>
+<dimen name="dim_28">42dp</dimen>
+<dimen name="dim_29">43.5dp</dimen>
+<dimen name="dim_30">45dp</dimen>
+<dimen name="dim_31">46.5dp</dimen>
+<dimen name="dim_32">48dp</dimen>
+<dimen name="dim_33">49.5dp</dimen>
+<dimen name="dim_34">51dp</dimen>
+<dimen name="dim_35">52.5dp</dimen>
+<dimen name="dim_36">54dp</dimen>
+<dimen name="dim_37">55.5dp</dimen>
+
+    <dimen name="font_size_10">15sp</dimen>
+<dimen name="font_size_11">16.5sp</dimen>
+<dimen name="font_size_12">18sp</dimen>
+<dimen name="font_size_13">19.5sp</dimen>
+<dimen name="font_size_14">21sp</dimen>
+<dimen name="font_size_15">22.5sp</dimen>
+<dimen name="font_size_16">24sp</dimen>
+<dimen name="font_size_17">25.5sp</dimen>
+<dimen name="font_size_18">27sp</dimen>
+<dimen name="font_size_19">28.5sp</dimen>
+<dimen name="font_size_20">30sp</dimen>
+<dimen name="font_size_21">31.5sp</dimen>
+<dimen name="font_size_22">33sp</dimen>
+<dimen name="font_size_23">34.5sp</dimen>
+<dimen name="font_size_24">36sp</dimen>
+<dimen name="font_size_25">37.5sp</dimen>
+<dimen name="font_size_26">39sp</dimen>
+<dimen name="font_size_28"> 42sp </dimen>
+<dimen name="font_size_30"> 45sp </dimen>
+<dimen name="font_size_32"> 48sp </dimen>
+<dimen name="font_size_34"> 51sp </dimen>
+
+</resources>

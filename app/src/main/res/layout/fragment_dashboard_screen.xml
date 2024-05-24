@@ -13,6 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        android:theme="@style/fragmentStyle"
         tools:context=".view.dashboardScreen.DashboardScreenFragment">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -22,6 +24,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_15"
+            android:text="@string/hi_there_this_is_for_testing_purpose_not_for_any_other_work_this_is_for_understanding_the_requiremtnts_of_the_project_of_themes_in_android_development"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

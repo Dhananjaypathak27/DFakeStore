@@ -15,10 +15,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.inxparticle.dfakestore.databinding.FragmentProfileScreenBinding
+import com.inxparticle.dfakestore.util.SharedPref
 
 class ProfileScreenFragment : Fragment() {
 
@@ -26,6 +28,7 @@ class ProfileScreenFragment : Fragment() {
     private val viewModel by viewModels<ProfileScreenViewModel>()
     private val CAMERA_PERMISSION_REQUEST_CODE = 100
     private val REQUEST_IMAGE_CAPTURE = 101
+    lateinit var sharedPref:SharedPref
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +36,8 @@ class ProfileScreenFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_profile_screen, container, false)
-        binding = FragmentProfileScreenBinding.inflate(inflater,container,false)
+//        FragmentProfileScreenBindingImpl
+        binding = FragmentProfileScreenBinding.inflate(inflater)
         return binding.root
     }
 
@@ -41,9 +45,27 @@ class ProfileScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        sharedPref = SharedPref(requireActivity())
+
+        binding.switch1.isChecked = sharedPref.getBoolean("nightModeOnn")
+
 
         binding.capturePhoto.setOnClickListener {
             checkCameraPermissionAndRequest()
+        }                                                                
+
+        binding.switch1.setOnCheckedChangeListener { buttonView, isChecked ->
+
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Toast.makeText(requireContext(), "Night Mode onn", Toast.LENGTH_SHORT).show()
+                sharedPref.setBoolean("nightModeOnn",true)
+
+            } else {
+                sharedPref.setBoolean("nightModeOnn",false)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                Toast.makeText(requireContext(), "Day Mode onn", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

@@ -21,7 +21,7 @@
             android:id="@+id/user_name_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="@string/username"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="16dp">
@@ -38,8 +38,8 @@
             android:id="@+id/password_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:hint="Password"
+            android:layout_marginTop="@dimen/dim_28"
+            android:hint="@string/password"
             app:layout_constraintTop_toBottomOf="@+id/user_name_text_input_layout"
             tools:layout_editor_absoluteX="0dp">
 
@@ -56,9 +56,9 @@
             android:id="@+id/login_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/dim_20"
             android:onClick="@{()->viewModel.onClickButton()}"
-            android:text="LogIn"
+            android:text="@string/login"
             android:visibility="@{viewModel.isLoading ? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
